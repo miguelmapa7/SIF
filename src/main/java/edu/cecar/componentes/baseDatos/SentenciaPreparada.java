@@ -18,7 +18,7 @@ package edu.cecar.componentes.baseDatos;
 import java.sql.PreparedStatement;
 
 /**
- *
+ * Con está clase se gestiona lo referente a los procedimientos almacenados
  *
  */
 public class SentenciaPreparada {
@@ -26,21 +26,10 @@ public class SentenciaPreparada {
     private static PreparedStatement gestionarUsuario;
     private static PreparedStatement gestionarPaciente;
     private static PreparedStatement gestionarAreaCuerpo;
-    private static PreparedStatement gestionarEmpleado;
-
-    public static PreparedStatement getGestionarEmpleado() throws Exception {
-
-        if (gestionarEmpleado == null) {
-
-            gestionarEmpleado
-                    = ConectarMySQL
-                            .getConexion().prepareStatement(
-                                    "call gestionarEmpleados(?,?,?,"
-                                    + "?,?,?,?,?)");
-        }
-
-        return gestionarEmpleado;
-    }
+    private static PreparedStatement gestionarPrecioTratamiento;
+    private static PreparedStatement gestionarTratamiento;
+    private static PreparedStatement gestionarDiagnostico;
+    private static PreparedStatement gestionarSesion;
 
     public static PreparedStatement getGestionarPaciente() throws Exception {
 
@@ -81,6 +70,58 @@ public class SentenciaPreparada {
         }
 
         return gestionarAreaCuerpo;
+    }
+
+    public static PreparedStatement getGestionarPrecioTratamiento() throws Exception {
+
+        if (gestionarPrecioTratamiento == null) {
+
+            gestionarPrecioTratamiento
+                    = ConectarMySQL
+                            .getConexion().prepareStatement(
+                                    "call gestionarpreciotratamiento(?,?,?,?)");
+        }
+
+        return gestionarPrecioTratamiento;
+    }
+
+    public static PreparedStatement getGestionarTratamiento() throws Exception {
+
+        if (gestionarTratamiento == null) {
+
+            gestionarTratamiento
+                    = ConectarMySQL
+                            .getConexion().prepareStatement(
+                                    "call gestionartratamiento(?,?,?,?)");
+        }
+
+        return gestionarTratamiento;
+    }
+    
+    public static PreparedStatement getGestionarDiagnostico() throws Exception {
+
+        if (gestionarDiagnostico == null) {
+
+            gestionarDiagnostico
+                    = ConectarMySQL
+                            .getConexion().prepareStatement(
+                                    "call gestionardiagnostico(?,?,?,?,?,?)");
+        }
+
+        return gestionarDiagnostico;
+    }
+    
+    public static PreparedStatement getGestionarSesion() throws Exception {
+
+        if (gestionarSesion == null) {
+
+            gestionarSesion
+                    = ConectarMySQL
+                            .getConexion().prepareStatement(
+                                    "call gestionarsesion1(?,?,?,?,?,?,?,?,?)");
+        }
+
+        return gestionarSesion;
     }
 
 }

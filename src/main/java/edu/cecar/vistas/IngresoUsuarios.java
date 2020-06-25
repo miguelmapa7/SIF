@@ -178,12 +178,36 @@ public class IngresoUsuarios extends javax.swing.JFrame {
                                     "Bienvenid@ "
                                     + usuario.getNombres());
                             ingreso.setVisible(true);
+                            ingreso.jMIPacientes.setEnabled(false);
+                            ingreso.jMTratamientos.setEnabled(false);
+                            ingreso.jMSesiones.setEnabled(false);
                             ingreso.pack();
                             dispose();
                             break;
                         case 1: // Si es fisioterapeuta
+                            JOptionPane.showMessageDialog(null,
+                                    "Bienvenid@ "
+                                    + usuario.getNombres());
+                            ingreso.setVisible(true);
+                            ingreso.jMIUsuarios.setEnabled(false);
+                            ingreso.jMITPrecioTratamientos.setEnabled(false);
+                            ingreso.jMIAreasCuerpo.setEnabled(false);
+                            ingreso.jMIPacientes.setEnabled(false);
+                            ingreso.pack();
+                            dispose();
                             break;
                         case 2: // Si es secretaria 
+                            JOptionPane.showMessageDialog(null,
+                                    "Bienvenid@ "
+                                    + usuario.getNombres());
+                            ingreso.setVisible(true);
+                            ingreso.jMIUsuarios.setEnabled(false);
+                            ingreso.jMITPrecioTratamientos.setEnabled(false);
+                            ingreso.jMIAreasCuerpo.setEnabled(false);
+                            ingreso.jMTratamientos.setEnabled(false);
+                            ingreso.jMSesiones.setEnabled(false);
+                            ingreso.pack();
+                            dispose();
                             break;
                         default:
                             break;

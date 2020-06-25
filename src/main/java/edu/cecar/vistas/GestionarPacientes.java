@@ -379,6 +379,10 @@ public class GestionarPacientes extends javax.swing.JInternalFrame {
     public void cargarImagenesBotones() {
         ImageIcon icon = new ImageIcon("recursos/consultar.png");
         jBConsultar.setIcon(icon);
+        ImageIcon icon2 = new ImageIcon("recursos/nuevo.png");
+        jBNuevo.setIcon(icon2);
+        ImageIcon icon3 = new ImageIcon("recursos/registrar.png");
+        jBRegistar.setIcon(icon3);
     }
 
     public static DefaultListModel<String> getModeloLista() {

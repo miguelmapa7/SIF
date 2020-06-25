@@ -47,6 +47,9 @@ public class MenuPrincipalSIF extends javax.swing.JFrame {
         jMITPrecioTratamientos = new javax.swing.JMenuItem();
         jMIAreasCuerpo = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMTratamientos = new javax.swing.JMenuItem();
+        jMSesiones = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMIPacientes = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
@@ -70,6 +73,11 @@ public class MenuPrincipalSIF extends javax.swing.JFrame {
         jMenu2.add(jMIUsuarios);
 
         jMITPrecioTratamientos.setText("Precios de Tratamientos");
+        jMITPrecioTratamientos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMITPrecioTratamientosActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMITPrecioTratamientos);
 
         jMIAreasCuerpo.setText("Areas del Cuerpo");
@@ -80,6 +88,23 @@ public class MenuPrincipalSIF extends javax.swing.JFrame {
         });
         jMenu2.add(jMIAreasCuerpo);
         jMenu2.add(jSeparator1);
+
+        jMTratamientos.setText("Tratamientos");
+        jMTratamientos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMTratamientosActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMTratamientos);
+
+        jMSesiones.setText("Sesiones");
+        jMSesiones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMSesionesActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMSesiones);
+        jMenu2.add(jSeparator2);
 
         jMIPacientes.setText("Pacientes");
         jMIPacientes.addActionListener(new java.awt.event.ActionListener() {
@@ -104,9 +129,7 @@ public class MenuPrincipalSIF extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jDEscritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
-                .addGap(0, 11, Short.MAX_VALUE))
+            .addComponent(jDEscritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
         );
 
         pack();
@@ -135,52 +158,42 @@ public class MenuPrincipalSIF extends javax.swing.JFrame {
         gestionarAreas.show();
     }//GEN-LAST:event_jMIAreasCuerpoActionPerformed
 
-//    /**
-//     * @param args the command line arguments
-//     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(MenuPrincipalSIF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(MenuPrincipalSIF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(MenuPrincipalSIF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(MenuPrincipalSIF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new MenuPrincipalSIF().setVisible(true);
-//            }
-//        });
-//    }
+    private void jMITPrecioTratamientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMITPrecioTratamientosActionPerformed
+        
+        GestionarPreciosTratamiento gestionarPreciosTratamiento = new GestionarPreciosTratamiento();
+        jDEscritorio.add(gestionarPreciosTratamiento);
+        gestionarPreciosTratamiento.show();
+    }//GEN-LAST:event_jMITPrecioTratamientosActionPerformed
+
+    private void jMSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMSesionesActionPerformed
+        
+        GestionarSesiones gestionarSesiones = new GestionarSesiones();
+        jDEscritorio.add(gestionarSesiones);
+        gestionarSesiones.show();
+    }//GEN-LAST:event_jMSesionesActionPerformed
+
+    private void jMTratamientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMTratamientosActionPerformed
+        
+        GestionarTratamientos gestionarTratamientos = new GestionarTratamientos();
+        jDEscritorio.add(gestionarTratamientos);
+        gestionarTratamientos.show();
+    }//GEN-LAST:event_jMTratamientosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDEscritorio;
-    private javax.swing.JMenuItem jMIAreasCuerpo;
-    private javax.swing.JMenuItem jMIPacientes;
-    private javax.swing.JMenuItem jMITPrecioTratamientos;
-    private javax.swing.JMenuItem jMIUsuarios;
+    public static javax.swing.JDesktopPane jDEscritorio;
+    public static javax.swing.JMenuItem jMIAreasCuerpo;
+    public static javax.swing.JMenuItem jMIPacientes;
+    public static javax.swing.JMenuItem jMITPrecioTratamientos;
+    public static javax.swing.JMenuItem jMIUsuarios;
+    public static javax.swing.JMenuItem jMSesiones;
+    public static javax.swing.JMenuItem jMTratamientos;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }

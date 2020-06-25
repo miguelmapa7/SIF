@@ -1,10 +1,10 @@
 /**
  *
- * Clase: GestionarUsuarios
+ * Clase: GestionarTratamientos
  *
  * @version: 0.1
  *
- * @Fecha de creación: 13/06/2020
+ * @Fecha de creación: 17/06/2020
  *
  * Fecha de Modificación:
  *
@@ -18,27 +18,27 @@ package edu.cecar.vistas;
 import edu.cecar.componentes.TextPrompt;
 import edu.cecar.componentes.baseDatos.ConectarMySQL;
 import edu.cecar.controladores.ControladorAreaCuerpo;
-import edu.cecar.controladores.ControladorUsuario;
+import edu.cecar.controladores.ControladorTratamiento;
 import edu.cecar.modelo.AreaCuerpo;
-import edu.cecar.modelo.Usuario;
+import edu.cecar.modelo.Tratamiento;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author migue
+ * 
  */
-public class GestionarAreaCuerpo extends javax.swing.JInternalFrame {
+public class GestionarTratamientos extends javax.swing.JInternalFrame {
 
-    private static ControladorAreaCuerpo controladorAreaCuerpo;
+    private static ControladorTratamiento controladorTratamiento;
 
     /**
      * Creates new form GestionarUsuarios
      */
-    public GestionarAreaCuerpo() {
+    public GestionarTratamientos() {
         initComponents();
         // Se hace que campo de texto Identidicación este listo para ser editado        
-        jTisArea.grabFocus();
+        jTTratamiento.grabFocus();
 
         alInicio();
         textoCampos();
@@ -67,9 +67,9 @@ public class GestionarAreaCuerpo extends javax.swing.JInternalFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jTisArea = new javax.swing.JTextField();
-        jTDescripcion = new javax.swing.JTextField();
-        jTLados = new javax.swing.JTextField();
+        jTTratamiento = new javax.swing.JTextField();
+        jTNombreTratamiento = new javax.swing.JTextField();
+        jTIDPrecio = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -81,35 +81,35 @@ public class GestionarAreaCuerpo extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
-        setTitle("Gestionar Áreas del Cuerpo");
+        setTitle("Gestionar Tratamientos");
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Información Área del cuerpo", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semibold", 0, 18))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Información del Tratamiento", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semibold", 0, 18))); // NOI18N
         jPanel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jPanel1.setLayout(null);
 
-        jTisArea.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
-        jTisArea.setBorder(null);
-        jTisArea.addActionListener(new java.awt.event.ActionListener() {
+        jTTratamiento.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
+        jTTratamiento.setBorder(null);
+        jTTratamiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTisAreaActionPerformed(evt);
+                jTTratamientoActionPerformed(evt);
             }
         });
-        jPanel1.add(jTisArea);
-        jTisArea.setBounds(60, 40, 150, 30);
+        jPanel1.add(jTTratamiento);
+        jTTratamiento.setBounds(60, 40, 150, 30);
 
-        jTDescripcion.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
-        jTDescripcion.setBorder(null);
-        jPanel1.add(jTDescripcion);
-        jTDescripcion.setBounds(30, 90, 210, 30);
+        jTNombreTratamiento.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
+        jTNombreTratamiento.setBorder(null);
+        jPanel1.add(jTNombreTratamiento);
+        jTNombreTratamiento.setBounds(30, 90, 210, 30);
 
-        jTLados.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
-        jTLados.setBorder(null);
-        jPanel1.add(jTLados);
-        jTLados.setBounds(30, 140, 210, 30);
+        jTIDPrecio.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
+        jTIDPrecio.setBorder(null);
+        jPanel1.add(jTIDPrecio);
+        jTIDPrecio.setBounds(30, 140, 210, 30);
         jPanel1.add(jSeparator2);
         jSeparator2.setBounds(50, 70, 170, 10);
         jPanel1.add(jSeparator3);
@@ -168,105 +168,105 @@ public class GestionarAreaCuerpo extends javax.swing.JInternalFrame {
     private void jBRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegistarActionPerformed
 
         // Se procede a realizar operaciones con los datos 
-        if (jTisArea.getText().equals("")
-                || jTDescripcion.getText().equals("")
-                || jTLados.getText().equals("")) {
+        if (jTTratamiento.getText().equals("")
+                || jTNombreTratamiento.getText().equals("")
+                || jTIDPrecio.getText().equals("")) {
 
             JOptionPane.showMessageDialog(null,
                     "Verificar los datos ingresados");
         } else {
 
-            AreaCuerpo areaCuerpo
-                    = new AreaCuerpo(Integer.parseInt(
-                            jTisArea.getText()),
-                            jTDescripcion.getText(),
-                            jTLados.getText());
-            guardar(areaCuerpo);
+            Tratamiento tratamiento
+                    = new Tratamiento(Integer.parseInt(
+                            jTTratamiento.getText()),
+                            jTNombreTratamiento.getText(),
+                            Integer.parseInt(jTIDPrecio.getText()));
+            guardar(tratamiento);
         }
 
     }//GEN-LAST:event_jBRegistarActionPerformed
 
     private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
 
-        nuevoAreaCuerpo();
+        nuevoTratamiento();
     }//GEN-LAST:event_jBNuevoActionPerformed
 
     private void jBConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarActionPerformed
 
-        consultarAreaCuerpo();
+        consultarTratamiento();
     }//GEN-LAST:event_jBConsultarActionPerformed
 
-    private void jTisAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTisAreaActionPerformed
+    private void jTTratamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTTratamientoActionPerformed
 
-        consultarAreaCuerpo();
-    }//GEN-LAST:event_jTisAreaActionPerformed
+        consultarTratamiento();
+    }//GEN-LAST:event_jTTratamientoActionPerformed
 
-    public static ControladorAreaCuerpo getControladorArea() {
+    public static ControladorTratamiento getControladorTratamiento() {
 
-        if (controladorAreaCuerpo == null) {
-            controladorAreaCuerpo = new ControladorAreaCuerpo();
+        if (controladorTratamiento == null) {
+            controladorTratamiento = new ControladorTratamiento();
         }
 
-        return controladorAreaCuerpo;
+        return controladorTratamiento;
 
     }
 
-    public void guardar(AreaCuerpo areaCuerpo) {
+    public void guardar(Tratamiento tratamiento) {
 
         try {
 
-            getControladorArea().guardar(areaCuerpo);
+            getControladorTratamiento().guardar(tratamiento);
             JOptionPane.showMessageDialog(null,
-                    "Área Almacenada correctamente");
-            nuevoAreaCuerpo();
+                    "Tratamiento Almacenado correctamente");
+            nuevoTratamiento();
             alInicio();
 
         } catch (Exception e) {
 
             JOptionPane.showMessageDialog(null,
-                    "Error al almacenar el Ärea");
+                    "Error al almacenar el Tratamiento");
             //e.printStackTrace();
         }
 
     }
 
-    public void nuevoAreaCuerpo() {
-        jTisArea.setText("");
-        jTDescripcion.setText("");
-        jTLados.setText("");
-        jTisArea.grabFocus();
+    public void nuevoTratamiento() {
+        jTTratamiento.setText("");
+        jTNombreTratamiento.setText("");
+        jTIDPrecio.setText("");
+        jTTratamiento.grabFocus();
     }
 
     public void alInicio() {
-        jTDescripcion.setEnabled(false);
-        jTLados.setEnabled(false);
+        jTNombreTratamiento.setEnabled(false);
+        jTIDPrecio.setEnabled(false);
         jBNuevo.setEnabled(false);
         jBRegistar.setEnabled(false);
     }
 
     public void despuesInicio() {
-        jTDescripcion.setEnabled(true);
-        jTLados.setEnabled(true);
+        jTNombreTratamiento.setEnabled(true);
+        jTIDPrecio.setEnabled(true);
         jBNuevo.setEnabled(true);
         jBRegistar.setEnabled(true);
     }
 
-    public void consultarAreaCuerpo() {
-        if (jTisArea.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Digite Área");
+    public void consultarTratamiento() {
+        if (jTTratamiento.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Digite Id Tratamiento");
         } else {
             try {
                 // Se consulta la existencia del usuario en la BD
-                AreaCuerpo areaCuerpo
-                        = getControladorArea()
-                                .consultar(jTisArea.getText());
+                Tratamiento tratamiento
+                        = getControladorTratamiento()
+                                .consultar(jTTratamiento.getText());
 
-                if (areaCuerpo != null) {
-                    jTDescripcion.setText(areaCuerpo.getDescripcion());
-                    jTLados.setText(areaCuerpo.getLado());
+                if (tratamiento != null) {
+                    jTNombreTratamiento.setText(tratamiento.getNombre());
+                    jTIDPrecio.setText(tratamiento.getPrecio() + "");
 
                     int resp = JOptionPane.showConfirmDialog(null,
-                            "¿Desea Modificar Área?", "Alerta!",
+                            "¿Desea Modificar Tratamiento?", "Alerta!",
                             JOptionPane.YES_NO_OPTION);
                     if (resp == 0) {
                         // Se habilitan los campos para módificar 
@@ -281,16 +281,16 @@ public class GestionarAreaCuerpo extends javax.swing.JInternalFrame {
             } catch (Exception e1) {
                 // TODO Auto-generated catch block
                 //e1.printStackTrace();
-                JOptionPane.showMessageDialog(null, "Área del cuepo NO existe");
+                JOptionPane.showMessageDialog(null, "Tratamiento NO existe");
             }
         }
 
     }
 
     public void textoCampos() {
-        TextPrompt textIdentificacion = new TextPrompt("Código Área", jTisArea);
-        TextPrompt textNombres = new TextPrompt("Descripción", jTDescripcion);
-        TextPrompt textApellidos = new TextPrompt("Lado", jTLados);
+        TextPrompt textIdentificacion = new TextPrompt("Código Tratamiento", jTTratamiento);
+        TextPrompt textNombres = new TextPrompt("Nombre", jTNombreTratamiento);
+        TextPrompt textApellidos = new TextPrompt("ID Precio", jTIDPrecio);
     }
 
     public void cargarImagenesBotones() {
@@ -313,8 +313,8 @@ public class GestionarAreaCuerpo extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextField jTDescripcion;
-    private javax.swing.JTextField jTLados;
-    private javax.swing.JTextField jTisArea;
+    private javax.swing.JTextField jTIDPrecio;
+    private javax.swing.JTextField jTNombreTratamiento;
+    private javax.swing.JTextField jTTratamiento;
     // End of variables declaration//GEN-END:variables
 }
