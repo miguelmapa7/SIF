@@ -47,7 +47,7 @@ public class ConectarMySQL {
 
             // Se conecta a la base de datos
             // Se crea un URL hacia la maquina y la base de datos
-            String url = "jdbc:mysql://" + servidorNombre + "/" + nombreBD;
+            String url = "jdbc:mysql://" + servidorNombre + "/" + nombreBD + "?useSSL=false";
 
             //se crea la conexion a la base de datos
             conexion = DriverManager.getConnection(url, usuario, password);
